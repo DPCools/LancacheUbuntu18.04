@@ -1,51 +1,65 @@
-Hello and welcome if you line lanacache and need to run it on ubunti server 108.04 then your in the right place.
-this has been taken from https://github.com/nexusofdoom/lancache-installer and uses some of the files from 
-https://github.com/bntjah/lancache and tweaked to work with ubuntu.
+Hello and welcome if your looking a lanacache and need to run it on Ubuntu Server 18.04 then your in the right place.
+This has been taken from https://github.com/nexusofdoom/lancache-installer and uses some of the files from https://github.com/bntjah/lancache and tweaked to work with ubuntu.
 
-I will try and keep this up to date as muchas possible. If you want the Deian Quick installer  go to https://github.com/nexusofdoom/lancache-installer
+I will try and keep this up to date as much as possible. If you want the Debian version of this installer the goto https://github.com/nexusofdoom/lancache-installer
 
-Hats off to the Lads for there hard work.
+Hats off too the Lads for there hard work.
 
-# lancache-installer (Baicly as as https://github.com/nexusofdoom/lancache-installer ) But Tweaked
+# lancache-installer (https://github.com/nexusofdoom/lancache-installer) But Tweaked
  
- #Install Ubuntu 18.04 X64 with SSH and Endable sudo
+#So go and get Ubuntu Server then install Ubuntu 18.04 X64
  
  #Download url for Ubuntu
 http://mirror.ox.ac.uk/sites/releases.ubuntu.com/releases/18.04/ubuntu-18.04-live-server-amd64.iso
  
  #You will need 20 avaliable IP's free in a row 192.168.x.x to be used by the lancache
 
-#Install git
+#Once installed just do the below and make ya self sudo user.
 
-apt-get install git
+ sudo -i  
+
+(enter password when asked)
+
+#make sure SSH installed so you can putty in and do the rest.
+
+apt install openssh-server -y
+
+#Now go to putty SSH in then copy and past the rest. (Besmart)
+
+#Get your updates done.
+
+ apt update
+ apt upgrade -y
+
+#Right time to install git
+
+ apt install git
 
 #Clone the git repo
 
-git clone -b master https://github.com/DPCools/LancacheUbuntu18.04.git
+ git clone -b master https://github.com/DPCools/LancacheUbuntu18.04.git
 
- 
+#Move to the directoy
+
  cd LancacheUbuntu18.04 
  
+#Make sh files executable 
  chmod +x *.sh 
 
-#Run scripts as sudo or root user
-
-#Run 
+#Run the following in the order below looking out for errors.
  
- ./install.sh
- 
-#Next run
+ ./install.sh   (will need a reboot after this as it makes your nic eth0 from what ever it is after install)
  
  ./install-jemalloc.sh
 
-#Then run 
- 
  ./install-nginx.sh
 
-#After run 
- 
  ./install-sniproxy.sh
 
-#Last run 
- 
  ./install-lancache.sh
+
+#And thats it just set your client PC DNS to this server then off you go.
+#So now if if some one downloads a Steam or MS game once  it will never need to download again untill the cache times out.
+
+#Happy fragging :) 
+
