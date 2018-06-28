@@ -1,5 +1,8 @@
 #!/bin/bash
-apt-get install libgeoip-dev locate net-tools screen git-y
+apt-get install libgeoip-dev -y 
+apt-get install locate -y
+apt-get install net-tools -y
+apt-get install screen -y
 apt-get install checkinstall docbook-xsl docbook-xsl-ns docbook-xsl-doc-html xsltproc -y
 apt-get install nload iftop httpry iftop tcpdump tshark -y
 apt-get install autotools-dev cdbs debhelper dh-autoreconf dpkg-dev gettext libev-dev libpcre3-dev pkg-config software-properties-common autotools-dev cdbs debhelper dh-autoreconf dpkg-dev gettext libev-dev libpcre3-dev libudns-dev pkg-config fakeroot devscripts -y 
