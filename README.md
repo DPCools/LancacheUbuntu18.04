@@ -1,5 +1,5 @@
 Hello and welcome if you line lanacache and need to run it on ubunti server 108.04 then your in the right place.
-this has been taken from https://github.com/nexusofdoom/lancache-installe and uses some of the files from 
+this has been taken from https://github.com/nexusofdoom/lancache-installer and uses some of the files from 
 https://github.com/bntjah/lancache and tweaked to work with ubuntu.
 
 I will try and keep this up to date as muchas possible. If you want the Deian Quick installer  go to https://github.com/nexusofdoom/lancache-installer
