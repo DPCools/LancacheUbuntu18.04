@@ -1,0 +1,28 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+     addresses:
+       - lc-host-ip/24
+       - lc-host-steam/24
+       - lc-host-riot/24
+       - lc-host-blizzard/24
+       - lc-host-hirez/24
+       - lc-host-origin/24
+       - lc-host-sony/24
+       - lc-host-microsoft/24
+       - lc-host-enmasse/24
+       - lc-host-gog/24
+       - lc-host-vint/24
+       - lc-host-arena/24
+       - lc-host-wargaming/24
+       - lc-host-uplay/24
+       - lc-host-apple/24
+       - lc-host-glyph/24
+       - lc-host-zenimax/24
+       - lc-host-digitalextremes/24
+       - lc-host-pearlabyss/24
+     gateway4: lc-host-gateway
+     nameservers:
+       addresses: [8.8.8.8, 1.1.1.1]
