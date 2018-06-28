@@ -188,7 +188,7 @@ sed -i 's|lc-host-pearlabyss|'$lc_ip_pearlabyss'|g' $lc_base_folder/hosts
 
 ## Make the Necessary Changes For The New Interfaces File
 
-curl http://www.ilimits.uk/lancache/netplan.yaml --output $lc_base_folder/50-cloud-init.yaml
+curl https://raw.githubusercontent.com/DPCools/LancacheUbuntu18.04/master/netplan.yaml --output $lc_base_folder/50-cloud-init.yaml
 
 sed -i 's|lc-host-ip|'$lc_ip'|g' $lc_base_folder/50-cloud-init.yaml
 sed -i 's|lc-host-gateway|'$lc_ip_gw'|g' $lc_base_folder/50-cloud-init.yaml
@@ -234,7 +234,7 @@ if [ -f "$lc_base_folder/hosts" ]; then
 fi
 
 if [ -f "$lc_base_folder/interfaces" ]; then
-	mv /etc/netplan/*.yaml /etc/netplan/*.bak
+	rm -f  /etc/netplan/*.yaml
 	cp $lc_base_folder/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml
 	netplan generate
 	netplan apply
