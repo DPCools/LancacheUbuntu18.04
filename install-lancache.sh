@@ -17,6 +17,7 @@ lc_ip_googledns2=8.8.4.4
 lc_ip_logfile=ip.log
 lc_ip_gw=$( /sbin/ip route | awk '/default/ { print $3 }' )
 apt-get install net-tools -y
+
 #rm old lancache files 
 rm /usr/local/lancache -Rvf
 rm /usr/local/lancache -Rvf
@@ -43,7 +44,6 @@ usermod -aG lancache lancache
 cp "$lc_base_folder/init.d/nginx" /etc/init.d/nginx 
 chmod +x /etc/init.d/nginx
 systemctl enable nginx
-
 
 ## Autostarting sniproxy
 cp "$lc_base_folder/init.d/sniproxy" /etc/init.d/sniproxy
@@ -138,7 +138,6 @@ echo Pearlabyss: $lc_ip_pearlabyss >>$lc_base_folder/logs/$lc_ip_logfile
 
 #unbound setup
 ## Preparing configuration for unbound
-
 sed -i 's|lc-host-ip|'$lc_ip'|g' $lc_base_folder/unbound/unbound.conf
 sed -i 's|lc-host-proxybind|'$lc_ip'|g' $lc_base_folder/unbound/unbound.conf
 sed -i 's|lc-host-gw|'$lc_ip_gw'|g' $lc_base_folder/unbound/unbound.conf
@@ -160,7 +159,7 @@ sed -i 's|lc-host-zenimax|'$lc_ip_zenimax'|g' $lc_base_folder/unbound/unbound.co
 sed -i 's|lc-host-digitalextremes|'$lc_ip_digitalextremes'|g' $lc_base_folder/unbound/unbound.conf
 sed -i 's|lc-host-pearlabyss|'$lc_ip_pearlabyss'|g' $lc_base_folder/unbound/unbound.conf
 
-#copy config for unbound into folder
+#copy config for unbound 
 cp $lc_base_folder/unbound/unbound.conf /etc/unbound/unbound.conf
 
 #Replace the interfaces: section with the normal ip (not the virtual ones)
@@ -189,11 +188,9 @@ sed -i 's|lc-host-pearlabyss|'$lc_ip_pearlabyss'|g' $lc_base_folder/hosts
 
 ## Make the Necessary Changes For The New Interfaces File
 
-
-
 curl http://www.ilimits.uk/lancache/netplan.yaml --output $lc_base_folder/50-cloud-init.yaml
 
-sed -i 's|lc-host-ip|'$lc_ip'|g' $lc_base_folder/interfaces
+sed -i 's|lc-host-ip|'$lc_ip'|g' $lc_base_folder/50-cloud-init.yaml
 sed -i 's|lc-host-gateway|'$lc_ip_gw'|g' $lc_base_folder/50-cloud-init.yaml
 sed -i 's|lc-host-arena|'$lc_ip_arena'|g' $lc_base_folder/50-cloud-init.yaml
 sed -i 's|lc-host-apple|'$lc_ip_apple'|g' $lc_base_folder/50-cloud-init.yaml
@@ -217,34 +214,15 @@ sed -i 's|lc-host-vint|'$lc_eth_int'|g' $lc_base_folder/50-cloud-init.yaml
 
 #Making Directorys for Data and Logs  
 echo making srv directorys 
-mkdir -p /srv/lancache/data/blizzard/
-mkdir -p /srv/lancache/data/microsoft/
-mkdir -p /srv/lancache/data/installs/
-mkdir -p /srv/lancache/data/other/
-mkdir -p /srv/lancache/data/tmp/
-mkdir -p /srv/lancache/data/hirez/
-mkdir -p /srv/lancache/data/origin/
-mkdir -p /srv/lancache/data/riot/
-mkdir -p /srv/lancache/data/gog/
-mkdir -p /srv/lancache/data/sony/
-mkdir -p /srv/lancache/data/steam/
-mkdir -p /srv/lancache/data/wargaming
-mkdir -p /srv/lancache/data/arenanetworks
-mkdir -p /srv/lancache/data/uplay
-mkdir -p /srv/lancache/data/glyph
-mkdir -p /srv/lancache/data/zenimax
-mkdir -p /srv/lancache/data/digitalextremes
-mkdir -p /srv/lancache/data/pearlabyss
-mkdir -p /srv/lancache/logs/Errors
-mkdir -p /srv/lancache/logs/Keys
-mkdir -p /srv/lancache/logs/Access
+mkdir -p /srv/lancache/data/{microsoft,installs,other,tmp,hirez,origin,riot,gog,sony,steam,wargaming,arenanetworks,uplay,glyph,zenimax,digitalextremes,pearlabyss}
+mkdir -p /srv/lancache/logs/{Errors,Keys,Access}
 
 #Change Ownership of folders
 chown -R lancache:lancache /srv/lancache
 chmod -R 777 /srv/lancache
 
 #Copy the conf folder and contents (where you originally git cloned it to in step 3) to /usr/local/nginx/conf/
-
+cp -R $lc_base_folder/conf /usr/local/nginx/
 
 ## Change the Proxy Bind in Lancache Configs
 sed -i 's|lc-host-proxybind|'$lc_ip'|g' $lc_nginx_loc/conf/vhosts-enabled/*.conf

@@ -14,7 +14,6 @@ network:
        - lc-host-microsoft/24
        - lc-host-enmasse/24
        - lc-host-gog/24
-       - lc-host-vint/24
        - lc-host-arena/24
        - lc-host-wargaming/24
        - lc-host-uplay/24

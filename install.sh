@@ -1,6 +1,8 @@
 #!/bin/bash
 apt update
 apt upgrade -y
+
+#cleaned out some duplicats from original ost and made it two lines 
 apt install libgeoip-dev locate net-tools screen checkinstall docbook-xsl docbook-xsl-ns docbook-xsl-doc-html xsltproc nload iftop httpry iftop tcpdump -y
 apt install autotools-dev debhelper dh-autoreconf dpkg-dev gettext libpcre3-dev pkg-config software-properties-common autotools-dev cdbs debhelper dh-autoreconf dpkg-dev gettext libev-dev libpcre3-dev libudns-dev pkg-config fakeroot devscripts  \
 unbound build-essential libpcre3 libpcre3-dev zlib1g-dev libreadline-dev libev4 libncurses5-dev unbound build-essential libncurses5-dev libssl-dev httpry libudns0 libudns-dev libev4 automake libtool autoconf autotools-dev  debhelper  pkg-config uuid-dev -y
