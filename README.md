@@ -21,7 +21,7 @@ apt-get install git
 
 #Clone the git repo
 
-git clone -b master 
+git clone -b master https://github.com/DPCools/LancacheUbuntu18.04.git
 
  
  cd lancache-installer 
