@@ -24,7 +24,7 @@ apt-get install git
 git clone -b master https://github.com/DPCools/LancacheUbuntu18.04.git
 
  
- cd lancache-installer 
+ cd LancacheUbuntu18.04 
  
  chmod +x *.sh 
 
