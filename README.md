@@ -28,7 +28,8 @@ apt install openssh-server -y
 
 #Get your updates done.
 
- apt update
+ apt update -y 
+ 
  apt upgrade -y
 
 #Right time to install git
@@ -44,7 +45,8 @@ apt install openssh-server -y
  cd LancacheUbuntu18.04 
  
 #Make sh files executable 
- chmod +x *.sh 
+
+chmod +x *.sh 
 
 #Run the following in the order below looking out for errors.
  
