@@ -1,5 +1,8 @@
 #!/bin/bash
+
+#Added universe repository
 apt-add-repository universe 
+
 apt update -y
 apt upgrade -y
 
