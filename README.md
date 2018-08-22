@@ -9,11 +9,41 @@ Hats off too the Lads for there hard work.
  
 #So go and get Ubuntu Server then install Ubuntu 18.04 X64
  
- #Download url for Ubuntu will only work on 18.04 only not 18.04.x i will up date the scrip per major start release.
+ #Download url for Ubuntu 18.04
 http://releases.ubuntu.com/18.04/
 
+--------- For Ubuntu 18.04.1  (Skip for 18.04 install ) ---------
+Back up your sources.list file
 
+    sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
+To add the repository, edit the file using nano (or your favorite editor)
+
+   sudo nano /etc/apt/sources.list
+
+Find the line
+
+    deb http://archive.ubuntu.com/ubuntu bionic main
+
+Append universe -- this instructs apt-get to first look for packages in the main repository then the universe repository
+
+    deb http://archive.ubuntu.com/ubuntu bionic main universe
+
+Save the file
+
+CTRL + O then ENTER when prompted for the file name (autofilled /etc/apt/sources.list)
+
+Exit nano
+
+CTRL + X
+
+Update your sources with the new repositories
+
+sudo apt-get update
+
+then run the install script
+
+-----------------------------------------------------------------
  
  #You will need 20 avaliable IP's free in a row 192.168.x.x to be used by the lancache
 
