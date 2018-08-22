@@ -1,5 +1,5 @@
 #!/bin/bash
-apt update
+apt update -y
 apt upgrade -y
 
 #cleaned out some duplicats from original ost and made it two lines 
