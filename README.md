@@ -9,8 +9,11 @@ Hats off too the Lads for there hard work.
  
 #So go and get Ubuntu Server then install Ubuntu 18.04 X64
  
- #Download url for Ubuntu
-http://mirror.ox.ac.uk/sites/releases.ubuntu.com/releases/18.04/ubuntu-18.04-live-server-amd64.iso
+ #Download url for Ubuntu will only work on 18.04 only not 18.04.x i will up date the scrip per major start release.
+http://releases.ubuntu.com/18.04/
+
+
+
  
  #You will need 20 avaliable IP's free in a row 192.168.x.x to be used by the lancache
 
